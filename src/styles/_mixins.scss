@@ -1,0 +1,10 @@
+@use 'sass:color';
+
+@mixin button-variant($bg, $fg) {
+  background: $bg;
+  color: $fg;
+
+  &:hover:not(:disabled) {
+    background: color.adjust($bg, $lightness: -8%);
+  }
+}
