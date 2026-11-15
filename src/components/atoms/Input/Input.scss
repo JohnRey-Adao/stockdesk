@@ -1,0 +1,29 @@
+@use "../../../styles/tokens" as *;
+
+.input {
+  width: 100%;
+  padding: $space-2 $space-3;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: $color-surface;
+  color: $color-ink;
+  font: inherit;
+
+  &::placeholder {
+    color: $color-muted;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-accent;
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    background: $color-bg;
+    cursor: not-allowed;
+  }
+
+  &--invalid {
+    border-color: $color-danger;
+  }
+}
