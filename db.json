@@ -1,0 +1,93 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "USB-C Cable",
+      "category": "Accessories",
+      "stock": 120,
+      "price": 199
+    },
+    {
+      "id": 2,
+      "name": "Mechanical Keyboard",
+      "category": "Peripherals",
+      "stock": 14,
+      "price": 3499
+    },
+    {
+      "id": 3,
+      "name": "Wireless Mouse",
+      "category": "Peripherals",
+      "stock": 56,
+      "price": 899
+    },
+    {
+      "id": 4,
+      "name": "27-inch Monitor",
+      "category": "Displays",
+      "stock": 9,
+      "price": 11999
+    },
+    {
+      "id": 5,
+      "name": "Laptop Stand",
+      "category": "Accessories",
+      "stock": 33,
+      "price": 1299
+    },
+    {
+      "id": 6,
+      "name": "HDMI Cable 2m",
+      "category": "Accessories",
+      "stock": 210,
+      "price": 349
+    },
+    {
+      "id": 7,
+      "name": "Webcam 1080p",
+      "category": "Peripherals",
+      "stock": 18,
+      "price": 1799
+    },
+    {
+      "id": 8,
+      "name": "Desk Lamp",
+      "category": "Office",
+      "stock": 41,
+      "price": 799
+    },
+    {
+      "id": 9,
+      "name": "Notebook A5",
+      "category": "Office",
+      "stock": 300,
+      "price": 120
+    },
+    {
+      "id": 10,
+      "name": "Gel Pen Pack",
+      "category": "Office",
+      "stock": 12,
+      "price": 150
+    },
+    {
+      "id": 11,
+      "name": "Portable SSD 1TB",
+      "category": "Storage",
+      "stock": 25,
+      "price": 5499
+    },
+    {
+      "id": 12,
+      "name": "USB Flash Drive 64GB",
+      "category": "Storage",
+      "stock": 88,
+      "price": 449
+    }
+  ],
+  "orders": [
+    { "id": 1, "productId": 2, "qty": 1, "status": "Pending" },
+    { "id": 2, "productId": 6, "qty": 5, "status": "Shipped" },
+    { "id": 3, "productId": 11, "qty": 2, "status": "Delivered" }
+  ]
+}

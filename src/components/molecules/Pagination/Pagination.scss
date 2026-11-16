@@ -1,0 +1,13 @@
+@use "../../../styles/tokens" as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+
+  &__status {
+    font-size: 0.9rem;
+    color: $color-muted;
+  }
+}

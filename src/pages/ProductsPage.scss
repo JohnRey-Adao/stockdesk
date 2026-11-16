@@ -1,0 +1,23 @@
+@use "../styles/tokens" as *;
+
+.products-page {
+  &__error {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-3;
+    padding: $space-3;
+    border: 1px solid $color-danger;
+    border-radius: $radius;
+    background: #fde8e6;
+    color: $color-danger;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__footer {
+    margin-top: $space-3;
+  }
+}
