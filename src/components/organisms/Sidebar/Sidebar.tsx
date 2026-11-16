@@ -8,9 +8,14 @@ const links = [
   { to: "/users", label: "Users", end: false },
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  onNavigate: () => void;
+}
+
+export function Sidebar({ isOpen, onNavigate }: SidebarProps) {
   return (
-    <aside className="sidebar">
+    <aside id="sidebar" className={`sidebar${isOpen ? " sidebar--open" : ""}`}>
       <div className="sidebar__brand">StockDesk</div>
       <nav aria-label="Main navigation">
         <ul className="sidebar__list">
@@ -19,6 +24,7 @@ export function Sidebar() {
               <NavLink
                 to={to}
                 end={end}
+                onClick={onNavigate}
                 className={({ isActive }) =>
                   `sidebar__link${isActive ? " sidebar__link--active" : ""}`
                 }

@@ -1,25 +1,60 @@
 @use "../../../styles/tokens" as *;
+@use "../../../styles/mixins" as *;
 
 .app-layout {
-  display: grid;
-  grid-template-columns: $sidebar-width 1fr;
   min-height: 100vh;
+
+  @include from($bp-tablet) {
+    display: grid;
+    grid-template-columns: $sidebar-width 1fr;
+  }
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(27, 34, 51, 0.5);
+
+    @include from($bp-tablet) {
+      display: none;
+    }
+  }
 
   &__body {
     display: flex;
     flex-direction: column;
     min-width: 0;
+    min-height: 100vh;
   }
 
   &__header {
-    padding: $space-3 $space-4;
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-2 $space-3;
     border-bottom: 1px solid $color-border;
     background: $color-surface;
     font-weight: 600;
+
+    // Written with the full parent selector so it beats the Button's own
+    // `display` rule no matter which stylesheet loads first
+    .app-layout__menu-button {
+      @include from($bp-tablet) {
+        display: none;
+      }
+    }
+
+    @include from($bp-tablet) {
+      padding: $space-3 $space-4;
+    }
   }
 
   &__main {
     flex: 1;
-    padding: $space-4;
+    padding: $space-3;
+
+    @include from($bp-tablet) {
+      padding: $space-4;
+    }
   }
 }

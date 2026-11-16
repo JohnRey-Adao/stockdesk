@@ -1,9 +1,39 @@
 @use "../../../styles/tokens" as *;
+@use "../../../styles/mixins" as *;
 
 .sidebar {
+  // Mobile: a fixed drawer that slides in from the left
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 20;
+  width: $sidebar-width;
+  overflow-y: auto;
+  padding: $space-4 $space-3;
   background: $color-sidebar;
   color: $color-sidebar-ink;
-  padding: $space-4 $space-3;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition:
+    transform 0.2s ease,
+    visibility 0.2s;
+
+  &--open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  // Tablet and up: a normal column that stays in view while you scroll
+  @include from($bp-tablet) {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    transform: none;
+    visibility: visible;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &__brand {
     margin-bottom: $space-4;
@@ -33,7 +63,7 @@
     }
 
     &:focus-visible {
-      outline: 3px solid $color-accent;
+      outline: 3px solid #fff;
       outline-offset: 2px;
     }
 
