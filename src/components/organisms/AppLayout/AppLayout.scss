@@ -1,0 +1,25 @@
+@use "../../../styles/tokens" as *;
+
+.app-layout {
+  display: grid;
+  grid-template-columns: $sidebar-width 1fr;
+  min-height: 100vh;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__header {
+    padding: $space-3 $space-4;
+    border-bottom: 1px solid $color-border;
+    background: $color-surface;
+    font-weight: 600;
+  }
+
+  &__main {
+    flex: 1;
+    padding: $space-4;
+  }
+}
