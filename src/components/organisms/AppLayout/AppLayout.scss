@@ -44,6 +44,22 @@
       }
     }
 
+    .app-layout__user {
+      display: flex;
+      align-items: center;
+      gap: $space-2;
+      margin-left: auto;
+      font-weight: 400;
+    }
+
+    .app-layout__user-name {
+      display: none;
+
+      @include from($bp-tablet) {
+        display: inline;
+      }
+    }
+
     @include from($bp-tablet) {
       padding: $space-3 $space-4;
     }

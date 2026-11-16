@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Button } from "@/components/atoms/Button/Button";
 import { Sidebar } from "@/components/organisms/Sidebar/Sidebar";
+import { useAuth } from "@/features/auth/useAuth";
 import "./AppLayout.scss";
 
 export function AppLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!menuOpen) {
@@ -21,6 +24,11 @@ export function AppLayout() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [menuOpen]);
+
+  function handleSignOut() {
+    signOut();
+    navigate("/login", { replace: true });
+  }
 
   return (
     <div className="app-layout">
@@ -47,6 +55,14 @@ export function AppLayout() {
             Menu
           </Button>
           <span>Inventory management</span>
+          <div className="app-layout__user">
+            <span className="app-layout__user-name">
+              {user?.name} ({user?.role})
+            </span>
+            <Button variant="ghost" size="sm" onClick={handleSignOut}>
+              Sign out
+            </Button>
+          </div>
         </header>
         <main className="app-layout__main">
           <Outlet />

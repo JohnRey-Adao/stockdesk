@@ -1,12 +1,9 @@
 import { useId } from "react";
-import type { InputHTMLAttributes } from "react";
+import type { ComponentProps } from "react";
 import { Input } from "@/components/atoms/Input/Input";
 import "./FormField.scss";
 
-interface FormFieldProps extends Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  "id"
-> {
+interface FormFieldProps extends Omit<ComponentProps<"input">, "id"> {
   label: string;
   error?: string;
   hint?: string;
